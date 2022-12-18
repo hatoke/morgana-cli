@@ -1,0 +1,16 @@
+{
+  "name": "morgana-cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "morgana-cli": "./bin/index.js"
+  },  
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "commander": "^9.4.1",
+    "prompts": "^2.4.2"    
+  }
+}
