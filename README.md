@@ -1,7 +1,7 @@
 # Morgana-cli
 
 <p align="center">
-  <img src="./morgana-mask.svg" width="200"/>
+  <img src="./morgana-mask.jpg" width="200"/>
 </p>
 
 I make a cli for my requirement on development. Morgana doesn't have enough command yet. I will new command if i need. I guess, I will improve this cli day by day.
