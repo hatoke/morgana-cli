@@ -7,7 +7,7 @@
     "morgana-cli": "./bin/index.js"
   },  
   "keywords": [],
-  "author": "",
+  "author": "Berkay UZUN",
   "license": "ISC",
   "devDependencies": {
     "commander": "^9.4.1",
