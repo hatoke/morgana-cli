@@ -1,5 +1,6 @@
 const prompts = require("prompts");
 const { copyFile } = require("./utilites/filesystem");
+const { generateReadme } = require("./template/base/readme");
 
 const appOptions = async () => {
   const appType = await prompts({
@@ -51,6 +52,27 @@ const appOptions = async () => {
   return { ...appType, appDetails };
 };
 
+const readMeOptions = async () => {
+  const options = await prompts({
+    type: "multiselect",
+    name: "sections",
+    message: "Pick section",
+    choices: [
+      { title: "Head", value: "HEAD" },
+      { title: "Build With", value: "BUILDW" },
+      { title: "Prerequisites", value: "PEREQ" },
+      { title: "Installation", value: "INSTALL" },
+      { title: "Usage", value: "USAGE" },
+      { title: "Roadmap", value: "ROADMAP" },
+      { title: "Contributing", value: "CONTRIBUTE" },
+      { title: "License", value: "LICENSE" },
+      { title: "Contact", value: "CONTACT" },
+      { title: "Acknowledgments", value: "ACKN" },
+    ],
+  });
+  return options;
+};
+
 module.exports = {
   async createApp(name, path, argOptions) {
     const options = await appOptions();
@@ -59,5 +81,10 @@ module.exports = {
 
   async gitignoreFile() {
     copyFile("/template/base/_gitignore", ".gitignore");
+  },
+
+  async readmeMd() {
+    const options = await readMeOptions();    
+    generateReadme(options)    
   },
 };
