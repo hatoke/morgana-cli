@@ -73,18 +73,30 @@ const readMeOptions = async () => {
   return options;
 };
 
+async function gitignoreFile() {
+  copyFile("/template/base/_gitignore", ".gitignore");
+}
+
+async function readmeMd() {
+  const options = await readMeOptions();
+  generateReadme(options);
+}
+
 module.exports = {
   async createApp(name, path, argOptions) {
     const options = await appOptions();
     console.log("craete options is ", options);
   },
 
-  async gitignoreFile() {
-    copyFile("/template/base/_gitignore", ".gitignore");
-  },
-
-  async readmeMd() {
-    const options = await readMeOptions();    
-    generateReadme(options)    
+  async generateAny(options) {
+    const files = {
+      gitignore: gitignoreFile,
+      readme: readmeMd,
+    };
+    if(files[options]){
+      files[options]();
+    } else{
+      console.log("Not mathcing file")
+    }
   },
 };
