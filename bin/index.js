@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 const { Command } = require("commander");
-const { createApp, gitignoreFile } = require("./commands");
+const { createApp, gitignoreFile, readmeMd } = require("./commands");
 
 const program = new Command();
 program
@@ -41,5 +41,10 @@ program
   .command("init gitignore")
   .description("create gitignore file")
   .action((options) => gitignoreFile(options));
+
+program
+  .command("generate readme")
+  .description("generate readme file")
+  .action((options) => readmeMd(options));
 
 program.parse();
