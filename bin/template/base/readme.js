@@ -93,7 +93,7 @@ function generateRoadmap() {
 - [ ] Feature 1
 - [ ] Feature 2
 - [ ] Feature 3
-    - [ ] Nested Feature
+- [ ] Nested Feature
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
@@ -209,6 +209,5 @@ module.exports = {
     });
     sections["DATA"]();
     createFile("README.md", readme);
-    console.log("README generated");
   },
 };
